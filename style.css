@@ -1,0 +1,93 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.alert {
+    display: none;
+}
+
+.container {
+    height: 150vh;
+}
+
+#Update {
+    display: none;
+}
+
+.row {
+    display: flex;
+}
+  
+.column {
+    flex: 50%;
+}
+
+#searchBar {
+    background-image: url('/icon/search.svg');
+    background-position: 15px 17px; 
+    background-repeat: no-repeat; 
+    width: 100%; 
+    padding: 12px 20px 12px 40px; 
+    border: 1px solid #e4dada;
+}
+
+#message {
+    display: none;
+    width: 100%;
+    padding: 20px 0 20px 20px;
+    border: 1px solid #eee;
+}
+
+thead a {
+    color: black;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.btnIcon {
+    outline: 0;
+    border: 0;
+    float: right;
+    border-radius: 0.5rem;
+    padding: .5rem;
+    font-size: 1.5rem;
+    background: #ffffff;
+}
+
+.pagination-button {
+    float: right;
+}
+
+#prevButton, #nextButton {
+    text-decoration: none;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    color: #333;
+    border-radius: 4px;
+}
+
+#prevButton:hover {
+    color: black;
+    background-color: #b6b8b9;
+}
+
+#nextButton:hover {
+    color: black;
+    background-color: #b6b8b9;
+}
+
+@media screen and (max-width: 768) {
+    .container {
+      width: 50%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+      flex: 100%;
+    }
+}
