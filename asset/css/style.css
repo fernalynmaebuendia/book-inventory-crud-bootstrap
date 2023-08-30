@@ -27,7 +27,7 @@
 }
 
 #searchBar {
-    background-image: url('/icon/search.svg');
+    background-image: url('icon/search.svg');
     background-position: 15px 17px; 
     background-repeat: no-repeat; 
     width: 100%; 
