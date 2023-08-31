@@ -12,6 +12,7 @@
 
 .container {
     height: 150vh;
+    margin-bottom: 50px;
 }
 
 #Update {
@@ -24,6 +25,7 @@
   
 .column {
     flex: 50%;
+    margin-bottom: 50px;
 }
 
 #searchBar {
@@ -132,15 +134,15 @@ thead a {
 @media screen and (max-width: 600px) {
     #prevButton, 
     #nextButton {
-        font-size: 11px;
+        font-size: 13px;
         padding: 4px 6px;
     }
 
     #paginationInfo {
-        font-size: 11px;
+        font-size: 13px;
     }
 
     #paginationShowResult {
-        font-size: 11px;
+        font-size: 13px;
     }
 }
