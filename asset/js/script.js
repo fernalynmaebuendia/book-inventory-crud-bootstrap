@@ -72,6 +72,93 @@ function showBook() {
     updatePaginationInfo();
 }
 
+// Close the modal when clicking outside the modal content
+// window.addEventListener('click', function(event) {
+//     const modal = document.getElementById('myModal');
+//     if (event.target === modal) {
+//         closeModal();
+//     }
+// });
+
+// Close the modal when the Escape key is pressed
+window.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeModal();
+    }
+});
+
+// Function to open modal
+function openModal() {
+    const modal = document.getElementById("myModal");
+    modal.style.display = "block";
+}
+
+// Function to close modal
+function closeModal() {
+    const modal = document.getElementById("myModal");
+    modal.style.display = "none";
+}
+
+// Function to View Data from local storage
+function viewBook(indexOnPage) {
+    // Function to display all data in the modal
+    const modalData = document.getElementById('modalData');
+    modalData.innerHTML = ''; // Clear previous data
+
+    // Retrieve the data for the clicked book
+    const indexInList = (currentPage - 1) * booksPerPage + indexOnPage;
+    // Get the book to update
+    const bookToView = bookList[indexInList];
+
+    // Create and append elements to display the book data in the modal
+    const bookTitle = document.createElement('h5');
+    bookTitle.innerHTML = `<strong>Title:</strong> ${bookToView.bookTitle}`;
+    modalData.appendChild(bookTitle);
+
+    const bookAuthor = document.createElement('h5');
+    bookAuthor.innerHTML = `<strong>Author:</strong> ${bookToView.bookAuthor}`;
+    modalData.appendChild(bookAuthor);
+
+    const bookDescription = document.createElement('h5');
+    bookDescription.innerHTML = `<strong>Description:</strong> ${bookToView.bookDescription}`;
+    modalData.appendChild(bookDescription);
+
+    const bookEdition = document.createElement('h5');
+    bookEdition.innerHTML = `<strong>Edition:</strong> ${bookToView.bookEdition}`;
+    modalData.appendChild(bookEdition);
+
+    const bookBarcode = document.createElement('h5');
+    bookBarcode.innerHTML = `<strong>ISBN:</strong> ${bookToView.bookBarcode}`;
+    modalData.appendChild(bookBarcode);
+
+    const bookPublication = document.createElement('h5');
+    bookPublication.innerHTML = `<strong>Publication:</strong> ${bookToView.bookPublication}`;
+    modalData.appendChild(bookPublication);
+
+    const datePub = document.createElement('h5');
+    datePub.innerHTML = `<strong>Date of Published:</strong> ${bookToView.datePub}`;
+    modalData.appendChild(datePub);
+
+    const bookCategory = document.createElement('h5');
+    bookCategory.innerHTML = `<strong>Category:</strong> ${bookToView.bookCategory}`;
+    modalData.appendChild(bookCategory);
+
+    const bookStatus = document.createElement('h5');
+    bookStatus.innerHTML = `<strong>Status:</strong> ${bookToView.bookStatus}`;
+    modalData.appendChild(bookStatus);
+
+    const comment = document.createElement('h5');
+    comment.innerHTML = `<strong>Comment:</strong> ${bookToView.comment}`;
+    modalData.appendChild(comment);
+
+    // Open the modal
+    openModal();
+}
+
+closeModal();
+
+
+
 // Function to Add Data to local storage
 function AddBook() {
     // If form is validated
@@ -240,11 +327,6 @@ function updateBook(indexOnPage) {
             updatePaginationInfo();
         }
     }
-}
-
-// Function to View Data from local storage
-function viewBook() {
-    
 }
 
 // Function to display matched data on the table
