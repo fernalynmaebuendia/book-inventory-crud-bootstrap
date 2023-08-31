@@ -16,7 +16,7 @@
 </head>
 <body>
     <div class="container-fluid">
-        <h2 class="d-flex justify-content-center mt-5 mb-5">Simple Book Inventory List</h2>
+        <h2 class="d-flex justify-content-center mt-5 mb-5">Simple Book Inventory System</h2>
     </div>
 
     <div class="container">
@@ -165,25 +165,24 @@
                 </select>
             </div>
 
-            <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div id="myModal" class="modal" tabindex="-1">
                 <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                    ...
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
-                    </div>
-                </div>
-                </div>
-            </div>
-
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Book Inventory System</h5>
+                        </div> <!-- End of modal header -->
+                        <br>
+                        <div id="modalData">
+                            <!-- Data from table will be displayed here -->
+                        </div> <!-- End of modal data -->
+                        <br>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" class="close" onclick="closeModal()">Close</button>
+                        </div> <!-- End of modal footer -->
+                    </div> <!-- End of modal content -->
+                </div> <!-- End of modal dialog -->
+            </div> <!-- End of modal -->
+            
             <!-- Table -->
             <input type="hidden" id="editIndex" name="editIndex" value="">
             <div class="table-responsive col-12">
