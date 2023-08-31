@@ -27,7 +27,7 @@
 }
 
 #searchBar {
-    background-image: url('/icon/search.svg');
+    background-image: url('../../icon/search.svg');
     background-position: 15px 17px; 
     background-repeat: no-repeat; 
     width: 100%; 
@@ -84,6 +84,45 @@ thead a {
     background-color: #b6b8b9;
 }
 
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+}
+
+.modal-title { 
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    align-self: end;
+    font-size: 28px;
+    font-weight: bold;
+}
+  
+.close:hover, 
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 768) {
     .container {
       width: 50%;
@@ -91,7 +130,17 @@ thead a {
 }
 
 @media screen and (max-width: 600px) {
-    .column {
-      flex: 100%;
+    #prevButton, 
+    #nextButton {
+        font-size: 11px;
+        padding: 4px 6px;
+    }
+
+    #paginationInfo {
+        font-size: 11px;
+    }
+
+    #paginationShowResult {
+        font-size: 11px;
     }
 }
