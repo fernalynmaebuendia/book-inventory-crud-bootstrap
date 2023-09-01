@@ -16,16 +16,22 @@ var html = "";
 // Validate form inputs
 function validateForm() {
     const form = document.getElementById('form');
+    const invalidFeedbackElements = form.querySelectorAll(".invalid-feedback");
+
+    // Hide any existing error messages
+    invalidFeedbackElements.forEach(element => element.style.display = "none");
 
     if (!form.checkValidity()) {
         form.classList.add('was-validated');
 
+        // Show error messages for invalid inputs
+        invalidFeedbackElements.forEach(element => element.style.display = "block");
+
         // Set timeout to remove validation classes and error messages after 3 seconds
         setTimeout(function() {
             form.classList.remove('was-validated');
-            const invalidFeedbackElements = form.querySelectorAll('.invalid-feedback');
             invalidFeedbackElements.forEach(element => element.style.display = 'none');
-        }, 3000);
+        }, 5000);
 
         return false;
     }
