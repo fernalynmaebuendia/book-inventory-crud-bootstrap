@@ -157,8 +157,6 @@ function viewBook(indexOnPage) {
 
 closeModal();
 
-
-
 // Function to Add Data to local storage
 function AddBook() {
     // If form is validated
