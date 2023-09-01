@@ -16,22 +16,20 @@ var html = "";
 // Validate form inputs
 function validateForm() {
     const form = document.getElementById('form');
-    const invalidFeedbackElements = form.querySelectorAll(".invalid-feedback");
+    const invalidFeedbackElements = form.querySelectorAll('.invalid-feedback');
 
-    // Hide any existing error messages
-    invalidFeedbackElements.forEach(element => element.style.display = "none");
+    invalidFeedbackElements.forEach(element => element.style.display = 'none');
 
     if (!form.checkValidity()) {
         form.classList.add('was-validated');
 
-        // Show error messages for invalid inputs
-        invalidFeedbackElements.forEach(element => element.style.display = "block");
+        invalidFeedbackElements.forEach(element => element.style.display = 'block');
 
         // Set timeout to remove validation classes and error messages after 3 seconds
         setTimeout(function() {
             form.classList.remove('was-validated');
             invalidFeedbackElements.forEach(element => element.style.display = 'none');
-        }, 5000);
+        }, 3000);
 
         return false;
     }
@@ -240,11 +238,11 @@ function deleteBook(indexOnPage) {
     // Update the bookList in local storage
     localStorage.setItem("bookList", JSON.stringify(bookList));
 
-    // Show the alert-delete message
+    // Show the alert-danger message
     var deleteAlert = document.querySelector(".alert-danger");
     deleteAlert.style.display = "block";
 
-    // Hide the alert-delete message after 3 seconds
+    // Hide the alert-danger message after 3 seconds
     setTimeout(function () {
         deleteAlert.style.display = "none";
     }, 3000);
@@ -301,11 +299,11 @@ function updateBook(indexOnPage) {
             // Update the bookList in local storage
             localStorage.setItem("bookList", JSON.stringify(bookList));
 
-            // Show the alert-update message
+            // Show the alert-success message
             var updateAlert = document.querySelector(".alert-info");
             updateAlert.style.display = "block";
 
-            // Hide the alert-update message after 3 seconds
+            // Hide the alert-success message after 3 seconds
             setTimeout(function () {
                 updateAlert.style.display = "none";
             }, 3000);
@@ -334,11 +332,11 @@ function updateBook(indexOnPage) {
 }
 
 // Function to display matched data on the table
-function populateTable(data) {
+function populateTable(book) {
     var html = "";
     
     // Display matched search in the table
-    data.forEach(function (element, index) {
+    book.forEach(function (element, index) {
         html += "<tr>";
         html += "<td>" + element.bookTitle + "</td>";
         html += "<td>" + element.bookAuthor + "</td>";
