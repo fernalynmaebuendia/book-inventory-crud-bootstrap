@@ -234,11 +234,11 @@ function deleteBook(indexOnPage) {
     // Update the bookList in local storage
     localStorage.setItem("bookList", JSON.stringify(bookList));
 
-    // Show the alert-danger message
+    // Show the alert-delete message
     var deleteAlert = document.querySelector(".alert-danger");
     deleteAlert.style.display = "block";
 
-    // Hide the alert-danger message after 3 seconds
+    // Hide the alert-delete message after 3 seconds
     setTimeout(function () {
         deleteAlert.style.display = "none";
     }, 3000);
@@ -295,11 +295,11 @@ function updateBook(indexOnPage) {
             // Update the bookList in local storage
             localStorage.setItem("bookList", JSON.stringify(bookList));
 
-            // Show the alert-success message
+            // Show the alert-update message
             var updateAlert = document.querySelector(".alert-info");
             updateAlert.style.display = "block";
 
-            // Hide the alert-success message after 3 seconds
+            // Hide the alert-update message after 3 seconds
             setTimeout(function () {
                 updateAlert.style.display = "none";
             }, 3000);
