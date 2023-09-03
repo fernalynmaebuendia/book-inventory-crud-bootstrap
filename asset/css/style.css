@@ -44,6 +44,11 @@
     border: 1px solid #eee;
 }
 
+.error {
+    color: #dc3545;
+    font-size: 15;
+}
+
 #searchResultCount {
     display: none;
 }
@@ -89,10 +94,6 @@
     padding: 20px;
     border: 1px solid #888;
     width: 80%; 
-}
-
-.modal-title { 
-    text-align: center;
 }
 
 .close {
