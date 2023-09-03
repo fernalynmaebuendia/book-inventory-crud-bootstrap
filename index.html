@@ -7,7 +7,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="asset/css/style.css">
 
-    <!-- SASS CSS CDN  -->
+    <!-- Bootstrap SASS CSS  -->
     <link rel="stylesheet" href="asset/css/main.css">
 
     <!-- Bootstrap Icon CDN -->
@@ -26,62 +26,48 @@
                 <div class="form-group col-md-6 mb-3">
                     <label for="title" class="form-label">Title</label>
                     <input type="text" name="title" class="form-control" id="title" placeholder="Enter Book Title" required>
-                    <div class="invalid-feedback">
-                        Please enter book title.
-                    </div>
+                    <div class="error" id="bookTitleErrorMsg"></div>
                 </div> 
 
                 <div class="form-group col-md-6 mb-3">
                     <label for="author" class="form-label">Author</label>
                     <input type="text" name="author" class="form-control" id="author" placeholder="Enter Book Author" required>
-                    <div class="invalid-feedback">
-                        Please enter book author.
-                    </div>
+                    <div class="error" id="bookAuthorErrorMsg"></div>
                 </div> 
         
                 <div class="form-group col-md-6 mb-3">
                     <label for="description" class="form-label">Description</label>
                     <input type="text" name="description" class="form-control" id="description" placeholder="Enter Book Description" required>
-                    <div class="invalid-feedback">
-                        Please enter book description.
-                    </div>
+                    <div class="error" id="bookDescriptionErrorMsg"></div>
                 </div>
                 
                 <div class="form-group col-md-6 mb-3">
                     <label for="edition" class="form-label">Edition</label>
                     <input type="text" name="edition" class="form-control" id="edition" placeholder="Enter Book Edition" required>
-                    <div class="invalid-feedback">
-                        Please enter book edition.
-                    </div>
+                    <div class="error" id="bookEditionErrorMsg"></div>
                 </div>
                 
                 <div class="form-group col-md-6 mb-3">
                     <label for="barcode" class="form-label">ISBN</label>
-                    <input type="text" name="Barcode" class="form-control" id="barcode" placeholder="Enter Book ISBN" required>
-                    <div class="invalid-feedback">
-                        Please enter book ISBN.
-                    </div>
+                    <input type="text" name="barcode" class="form-control" id="barcode" placeholder="Enter Book ISBN" required>
+                    <div class="error" id="bookBarcodeErrorMsg"></div>
                 </div> 
       
                 <div class="form-group col-md-6 mb-3">
                     <label for="publication" class="form-label">Publication</label>
                     <input type="text" name="publication" class="form-control" id="publication" placeholder="Enter Book Publication" required>
-                    <div class="invalid-feedback">
-                        Please enter book publication.
-                    </div>
+                    <div class="error" id="bookPublicationErrorMsg"></div>
                 </div> 
 
                 <div class="form-group col-md-6 mb-3">
                     <label for="date-publish" class="form-label">Date of Published</label>
                     <input type="date" name="date-publish" class="form-control" id="date-publish" placeholder="Enter Date of Published" required>
-                    <div class="invalid-feedback">
-                        Please enter date of published.
-                    </div>
+                    <div class="error" id="datePubErrorMsg"></div>
                 </div> 
                 
                 <div class="form-group col-md-6 mb-3">
                     <label for="category" class="form-label">Categories</label>
-                    <select class="form-select mb-3" name="category" id="category" aria-placeholder="Select Category" required>
+                    <select class="form-select" name="category" id="category" aria-placeholder="Select Category" required>
                         <option selected disabled value="">Select Category</option>
                         <option value="Arts & Music">Arts & Music</option>
                         <option value="Biographies">Biographies</option>
@@ -97,29 +83,23 @@
                         <option value="Sci-Fi & Fantasy">Sci-Fi & Fantasy</option>
                         <option value="Social Sciences">Social Sciences</option>
                     </select>
-                    <div class="invalid-feedback">
-                        Please select category.
-                    </div>
+                    <div class="error" id="bookCategoryErrorMsg"></div>
                 </div>
 
                 <div class="form-group col-md-6 mb-3">
                     <label for="status" class="form-label">Status</label>
-                    <select class="form-select mb-3" name="status" id="status" required>
+                    <select class="form-select" name="status" id="status" required>
                         <option selected disabled value="">Select Status</option>
                         <option value="In">In</option>
                         <option value="Out">Out</option>
                     </select>
-                    <div class="invalid-feedback">
-                        Please select status.
-                    </div>
+                    <div class="error" id="bookStatusErrorMsg"></div>
                 </div> 
 
                 <div class="form-group col-md-6 mb-3">
                     <label for="comment" class="form-label">Comment</label>
                     <textarea type="text" name="comment" class="form-control" rows="5" id="comment" placeholder="Add Comment" required></textarea>
-                    <div class="invalid-feedback">
-                        Please add comment.
-                    </div>
+                    <div class="error" id="commentErrorMsg"></div>
                 </div>
 
                 <!-- Buttons -->
