@@ -1,5 +1,3 @@
-// Add a variable to keep track of the current page or table being displayed
-let currentPageIndex = 0;
 // Pagination prev and next current page
 let currentPage = 1;
 // Show entries books per page and 5 is default show entries 
@@ -15,20 +13,131 @@ var html = "";
 
 // Validate form inputs
 function validateForm() {
-    const form = document.getElementById('form');
-    const invalidFeedbackElements = form.querySelectorAll('.invalid-feedback');
+    const form = document.getElementById("form");
+    const error = form.querySelectorAll(".error");
+    let hasErrors = false;
+    
+    // Error message
+    const bookTitleErrorMsg = document.getElementById("bookTitleErrorMsg");
+    const bookAuthorErrorMsg = document.getElementById("bookAuthorErrorMsg");
+    const bookDescriptionErrorMsg = document.getElementById("bookDescriptionErrorMsg");
+    const bookEditionErrorMsg = document.getElementById("bookEditionErrorMsg");
+    const bookBarcodeErrorMsg = document.getElementById("bookBarcodeErrorMsg");
+    const bookPublicationErrorMsg = document.getElementById("bookPublicationErrorMsg");
+    const datePubErrorMsg = document.getElementById("datePubErrorMsg");
+    const bookCategoryErrorMsg = document.getElementById("bookCategoryErrorMsg");
+    const bookStatusErrorMsg = document.getElementById("bookStatusErrorMsg");
+    const commentErrorMsg = document.getElementById("commentErrorMsg");
 
-    invalidFeedbackElements.forEach(element => element.style.display = 'none');
+    // Get input for invalid error
+    const bookTitleInput = form.querySelector('input[name="title"]').value;
+    const bookAuthorInput = form.querySelector('input[name="author"]').value;
+    const bookDescriptionInput = form.querySelector('input[name="description"]').value;
+    const bookEditionInput = form.querySelector('input[name="edition"]').value;
+    const bookBarcodeInput = form.querySelector('input[name="barcode"]').value;
+    const bookPublicationInput = form.querySelector('input[name="publication"]').value;
+    const datePubInput = document.getElementById("date-publish").value;
+    const bookCategoryInput = document.getElementById("category").value;
+    const bookStatusInput = document.getElementById("status").value;
+    const commentInput = document.getElementById("comment").value;
 
     if (!form.checkValidity()) {
         form.classList.add('was-validated');
 
-        invalidFeedbackElements.forEach(element => element.style.display = 'block');
+        if (bookTitleInput.trim() === "") {
+            bookTitleErrorMsg.innerHTML = "Please enter book title";
+            bookTitleErrorMsg.style.display = "block";
+            setTimeout(function () {
+                bookTitleErrorMsg.style.display = "none";
+            }, 3000);
+            hasErrors = true;
+        }
+        
+        if (bookAuthorInput.trim() === "") {
+            bookAuthorErrorMsg.innerHTML = "Please enter book author";
+            bookAuthorErrorMsg.style.display = "block";
+            setTimeout(function () {
+                bookAuthorErrorMsg.style.display = "none";
+            }, 3000);
+            hasErrors = true;
+        }
+
+        if (bookDescriptionInput.trim() === "") {
+            bookDescriptionErrorMsg.innerHTML = "Please enter book description";
+            bookDescriptionErrorMsg.style.display = "block";
+            setTimeout(function () {
+                bookDescriptionErrorMsg.style.display = "none";
+            }, 3000);
+            hasErrors = true;
+        }
+
+        if (bookEditionInput.trim() === "") {
+            bookEditionErrorMsg.innerHTML = "Please enter book edition";
+            bookEditionErrorMsg.style.display = "block";
+            setTimeout(function () {
+                bookEditionErrorMsg.style.display = "none";
+            }, 3000);
+            hasErrors = true;
+        }
+
+        if (bookBarcodeInput.trim() === "") {
+            bookBarcodeErrorMsg.innerHTML = "Please enter book ISBN";
+            bookBarcodeErrorMsg.style.display = "block";
+            setTimeout(function () {
+                bookBarcodeErrorMsg.style.display = "none";
+            }, 3000);
+            hasErrors = true;
+        }
+
+        if (bookPublicationInput.trim() === "") {
+            bookPublicationErrorMsg.innerHTML = "Please enter book publication";
+            bookPublicationErrorMsg.style.display = "block";
+            setTimeout(function () {
+                bookPublicationErrorMsg.style.display = "none";
+            }, 3000);
+            hasErrors = true;
+        }
+
+        if (datePubInput.trim() === "") {
+            datePubErrorMsg.innerHTML = "Please enter date of published";
+            datePubErrorMsg.style.display = "block";
+            setTimeout(function () {
+                datePubErrorMsg.style.display = "none";
+            }, 3000);
+            hasErrors = true;
+        }
+
+        if (bookCategoryInput.trim() === "") {
+            bookCategoryErrorMsg.innerHTML = "Please select category";
+            bookCategoryErrorMsg.style.display = "block";
+            setTimeout(function () {
+                bookCategoryErrorMsg.style.display = "none";
+            }, 3000);
+            hasErrors = true;
+        }
+
+        if (bookStatusInput.trim() === "") {
+            bookStatusErrorMsg.innerHTML = "Please select status";
+            bookStatusErrorMsg.style.display = "block";
+            setTimeout(function () {
+                bookStatusErrorMsg.style.display = "none";
+            }, 3000);
+            hasErrors = true;
+        }
+
+        if (commentInput.trim() === "") {
+            commentErrorMsg.innerHTML = "Please add comment";
+            commentErrorMsg.style.display = "block";
+            setTimeout(function () {
+                commentErrorMsg.style.display = "none";
+            }, 3000);
+            hasErrors = true;
+        }
 
         // Set timeout to remove validation classes and error messages after 3 seconds
         setTimeout(function() {
             form.classList.remove('was-validated');
-            invalidFeedbackElements.forEach(element => element.style.display = 'none');
+            error.forEach(element => element.style.display = "none");
         }, 3000);
 
         return false;
@@ -60,7 +169,7 @@ function showBook() {
         html +=
             '<td style="text-align: center"><button type="button" onclick="viewBook(' + 
             index +
-            ')" class="btn btn-info m-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-eye"></i></button><button onclick="deleteBook(' + 
+            ')" class="btn btn-info m-2"><i class="bi bi-eye"></i></button><button onclick="deleteBook(' + 
             index +
             ')" class="btn btn-danger" id="Delete"><i class="bi bi-trash"></i></button><button onclick="updateBook(' + 
             index +
